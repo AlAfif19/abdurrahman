@@ -1,4 +1,4 @@
-import { ArrowRight, Send } from 'lucide-react'
+import { ArrowRight, Download } from 'lucide-react'
 import { motion } from 'motion/react'
 import casualPortrait from '../assets/casual-portrait.jpeg'
 import professionalPortrait from '../assets/professional-portrait.jpeg'
@@ -8,11 +8,11 @@ export default function HeroSection({ profile, copy, mode }) {
     mode === 'professional'
       ? {
           src: professionalPortrait,
-          alt: `${profile.name} professional portrait`,
+          alt: `${profile.name} potret profesional`,
         }
       : {
           src: casualPortrait,
-          alt: `${profile.name} casual performance portrait`,
+          alt: `${profile.name} potret casual`,
         }
 
   return (
@@ -52,11 +52,11 @@ export default function HeroSection({ profile, copy, mode }) {
           {copy.summary}
         </motion.p>
         <div className="hero-actions">
-          <a className="primary-action" href="#projects">
-            View Projects <ArrowRight size={18} aria-hidden="true" />
+          <a className="primary-action" href={profile.cvHref} download>
+            {copy.primaryLabel} <Download size={18} aria-hidden="true" />
           </a>
-          <a className="secondary-action" href="#contact">
-            Contact <Send size={18} aria-hidden="true" />
+          <a className="secondary-action" href={mode === 'professional' ? '#projects' : '#gallery'}>
+            {copy.secondaryLabel} <ArrowRight size={18} aria-hidden="true" />
           </a>
         </div>
       </motion.div>

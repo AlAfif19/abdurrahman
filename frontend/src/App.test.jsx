@@ -12,26 +12,24 @@ test('switches between professional and casual modes', async () => {
   const user = userEvent.setup()
   render(<App />)
 
-  expect(screen.getByText(/ai\/ml developer/i)).toBeInTheDocument()
-  await user.click(screen.getByRole('button', { name: /switch to casual mode/i }))
-  expect(screen.getByText(/community builder/i)).toBeInTheDocument()
-  expect(screen.getByRole('button', { name: /switch to professional mode/i })).toBeInTheDocument()
+  expect(screen.getAllByText(/pengembang ai\/ml/i)).not.toHaveLength(0)
+  await user.click(screen.getByRole('button', { name: /alih ke mode casual/i }))
+  expect(screen.getAllByText(/penggerak organisasi/i)).not.toHaveLength(0)
+  expect(screen.getByRole('button', { name: /alih ke mode profesional/i })).toBeInTheDocument()
 })
 
 test('renders every PRD section', () => {
   render(<App />)
 
   for (const name of [
-    'About',
-    'Skills',
-    'Projects',
-    'Gallery',
-    'Experience',
-    'Organization',
-    'Certificates',
-    'Contact',
+    'Profil',
+    'Tech Stack',
+    'Project IT',
+    'Pengalaman IT',
+    'Sertifikat',
+    'Kontak',
   ]) {
-    expect(screen.getByRole('heading', { name })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name, level: 2 })).toBeInTheDocument()
   }
 })
 
@@ -40,7 +38,7 @@ test('marks the app root with the active visual mode', async () => {
   render(<App />)
 
   expect(screen.getByTestId('portfolio-app')).toHaveAttribute('data-mode', 'professional')
-  await user.click(screen.getByRole('button', { name: /switch to casual mode/i }))
+  await user.click(screen.getByRole('button', { name: /alih ke mode casual/i }))
   expect(screen.getByTestId('portfolio-app')).toHaveAttribute('data-mode', 'casual')
 })
 
@@ -48,29 +46,63 @@ test('uses different portrait treatments for professional and casual modes', asy
   const user = userEvent.setup()
   render(<App />)
 
-  expect(screen.getByAltText(/professional portrait/i)).toBeInTheDocument()
-  await user.click(screen.getByRole('button', { name: /switch to casual mode/i }))
-  expect(screen.getByAltText(/casual performance portrait/i)).toBeInTheDocument()
+  expect(screen.getByAltText(/potret profesional/i)).toBeInTheDocument()
+  await user.click(screen.getByRole('button', { name: /alih ke mode casual/i }))
+  expect(screen.getByAltText(/potret casual/i)).toBeInTheDocument()
 })
 
-test('project cards link directly to GitHub', () => {
+test('professional mode only shows IT content with specific GitHub repositories', () => {
   render(<App />)
 
-  const projectLink = screen.getByRole('link', { name: /rag chatbot desa/i })
-  expect(projectLink).toHaveAttribute('href', expect.stringContaining('github.com/AlAfif19'))
+  expect(screen.getByRole('heading', { name: /project it/i })).toBeInTheDocument()
+  expect(screen.queryByRole('heading', { name: /organisasi/i })).not.toBeInTheDocument()
+
+  expect(screen.getByRole('link', { name: /rag chatbot desa/i })).toHaveAttribute(
+    'href',
+    'https://github.com/AlAfif19/RAGchatbot-desa.git',
+  )
+  expect(screen.getByRole('link', { name: /segmentasi pelanggan/i })).toHaveAttribute(
+    'href',
+    'https://github.com/AlAfif19/segmentasi__pelanggan.git',
+  )
+  expect(screen.getAllByAltText(/pratinjau dashboard/i)).toHaveLength(2)
 })
 
-test('gallery carousel advances through portfolio moments', async () => {
+test('casual mode only shows organization and non-IT content', async () => {
   const user = userEvent.setup()
   render(<App />)
 
-  expect(screen.getByRole('heading', { name: /leadership stage/i })).toBeInTheDocument()
-  await user.click(screen.getByRole('button', { name: /next gallery item/i }))
-  expect(screen.getByRole('heading', { name: /organization team/i })).toBeInTheDocument()
+  await user.click(screen.getByRole('button', { name: /alih ke mode casual/i }))
+
+  expect(screen.getByRole('heading', { name: /organisasi/i })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /galeri/i })).toBeInTheDocument()
+  expect(screen.queryByRole('heading', { name: /project it/i })).not.toBeInTheDocument()
+  expect(screen.queryByRole('heading', { name: /tech stack/i })).not.toBeInTheDocument()
+})
+
+test('gallery carousel advances through organization moments in casual mode', async () => {
+  const user = userEvent.setup()
+  render(<App />)
+
+  await user.click(screen.getByRole('button', { name: /alih ke mode casual/i }))
+  expect(screen.getByRole('heading', { name: /panggung kepemimpinan/i })).toBeInTheDocument()
+  await user.click(screen.getByRole('button', { name: /item galeri berikutnya/i }))
+  expect(screen.getByRole('heading', { name: /tim organisasi/i })).toBeInTheDocument()
 })
 
 test('renders decorative floating 3d assets behind the portfolio', () => {
   render(<App />)
 
   expect(screen.getByTestId('floating-3d-assets')).toBeInTheDocument()
+})
+
+test('CV and certificate assets are directly downloadable', () => {
+  render(<App />)
+
+  const [cvLink] = screen.getAllByRole('link', { name: /unduh cv/i })
+  expect(cvLink).toHaveAttribute('download')
+  expect(cvLink).toHaveAttribute('href', expect.stringContaining('CV_Afif_2026.docx'))
+
+  expect(screen.getAllByAltText(/sertifikat/i)).not.toHaveLength(0)
+  expect(screen.getAllByRole('link', { name: /unduh sertifikat/i })[0]).toHaveAttribute('download')
 })

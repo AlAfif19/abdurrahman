@@ -3,17 +3,21 @@ import SectionShell from './SectionShell'
 
 export default function ProjectsSection({ projects }) {
   return (
-    <SectionShell id="projects" eyebrow="Selected work" title="Projects">
-      <div className="card-grid">
+    <SectionShell id="projects" eyebrow="(02) Project terpilih" title="Project IT">
+      <div className="project-bento">
         {projects.map((project) => (
           <a
-            className="surface-card project-card project-card-link"
+            className="surface-card project-card project-card-link bento-card"
+            data-featured={project.featured}
             href={project.github}
             key={project.title}
             target="_blank"
             rel="noreferrer"
-            aria-label={`${project.title} on GitHub`}
+            aria-label={`${project.title} di GitHub`}
           >
+            <div className="project-thumb">
+              <img src={project.image} alt={project.imageAlt} loading="lazy" />
+            </div>
             <div className="project-card-topline">
               <Github size={18} aria-hidden="true" />
               <span>GitHub</span>

@@ -7,22 +7,22 @@ import publicSpeaking from '../assets/gallery-public-speaking.jpeg'
 
 const galleryItems = [
   {
-    title: 'Leadership Stage',
-    caption: 'Speaking in an organization setting with a formal leadership presence.',
+    title: 'Panggung Kepemimpinan',
+    caption: 'Berbicara dalam forum organisasi dengan pembawaan yang formal dan percaya diri.',
     image: leadershipStage,
-    alt: 'Al Afif speaking on a leadership stage',
+    alt: 'Al Afif berbicara di panggung organisasi',
   },
   {
-    title: 'Organization Team',
-    caption: 'Collaborating with organization members across campus activities.',
+    title: 'Tim Organisasi',
+    caption: 'Berkolaborasi bersama anggota organisasi dalam berbagai kegiatan kampus.',
     image: organizationTeam,
-    alt: 'Organization team group photo',
+    alt: 'Foto bersama tim organisasi',
   },
   {
-    title: 'Public Speaking Moment',
-    caption: 'Representing event communication with confident delivery.',
+    title: 'Momen Public Speaking',
+    caption: 'Mewakili kegiatan dan menyampaikan pesan dengan komunikasi yang percaya diri.',
     image: publicSpeaking,
-    alt: 'Public speaking moment from campus event publication',
+    alt: 'Momen public speaking dalam kegiatan kampus',
   },
 ]
 
@@ -43,7 +43,7 @@ export default function GallerySection() {
   }
 
   return (
-    <SectionShell id="gallery" eyebrow="Moments" title="Gallery">
+    <SectionShell id="gallery" eyebrow="(03) Cerita di luar kelas" title="Galeri">
       <div className="gallery-layout">
         <article className="gallery-feature" aria-live="polite">
           <div className="gallery-image-wrap">
@@ -61,11 +61,11 @@ export default function GallerySection() {
           </div>
         </article>
 
-        <div className="gallery-controls" aria-label="Gallery controls">
-          <button type="button" onClick={showPrevious} aria-label="Previous gallery item">
+        <div className="gallery-controls" aria-label="Kontrol galeri">
+          <button type="button" onClick={showPrevious} aria-label="Item galeri sebelumnya">
             <ChevronLeft size={20} aria-hidden="true" />
           </button>
-          <button type="button" onClick={showNext} aria-label="Next gallery item">
+          <button type="button" onClick={showNext} aria-label="Item galeri berikutnya">
             <ChevronRight size={20} aria-hidden="true" />
           </button>
         </div>
@@ -78,7 +78,7 @@ export default function GallerySection() {
               key={item.title}
               type="button"
               onClick={() => setActiveIndex(index)}
-              aria-label={`Show ${item.title}`}
+              aria-label={`Tampilkan ${item.title}`}
             >
               <img src={item.image} alt="" aria-hidden="true" />
               <span>{item.title}</span>

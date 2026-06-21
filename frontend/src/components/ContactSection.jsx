@@ -9,7 +9,7 @@ const icons = {
 
 export default function ContactSection({ contacts }) {
   return (
-    <SectionShell id="contact" eyebrow="Let us connect" title="Contact">
+    <SectionShell id="contact" eyebrow="(05) Mari terhubung" title="Kontak">
       <div className="contact-list">
         {contacts.map((contact) => {
           const Icon = icons[contact.label]
