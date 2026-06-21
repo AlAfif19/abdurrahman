@@ -17,3 +17,11 @@ test('switches between professional and casual modes', async () => {
   expect(screen.getByText(/community builder/i)).toBeInTheDocument()
   expect(screen.getByRole('button', { name: /switch to professional mode/i })).toBeInTheDocument()
 })
+
+test('renders every PRD section', () => {
+  render(<App />)
+
+  for (const name of ['About', 'Skills', 'Projects', 'Experience', 'Organization', 'Certificates', 'Contact']) {
+    expect(screen.getByRole('heading', { name })).toBeInTheDocument()
+  }
+})

@@ -1,5 +1,13 @@
 import { useState } from 'react'
 import { portfolio } from './data/portfolio'
+import AboutSection from './components/AboutSection'
+import CertificatesSection from './components/CertificatesSection'
+import ContactSection from './components/ContactSection'
+import HeroSection from './components/HeroSection'
+import Navbar from './components/Navbar'
+import ProjectsSection from './components/ProjectsSection'
+import SkillsSection from './components/SkillsSection'
+import TimelineSection from './components/TimelineSection'
 
 export default function App() {
   const [mode, setMode] = useState('professional')
@@ -7,13 +15,28 @@ export default function App() {
   const nextMode = mode === 'professional' ? 'casual' : 'professional'
 
   return (
-    <main>
-      <p>{copy.role}</p>
-      <h1>{portfolio.profile.name}</h1>
-      <p>{copy.summary}</p>
-      <button type="button" onClick={() => setMode(nextMode)}>
-        {copy.switchLabel}
-      </button>
-    </main>
+    <div className="app-shell">
+      <Navbar mode={mode} switchLabel={copy.switchLabel} onToggleMode={() => setMode(nextMode)} />
+      <main>
+        <HeroSection profile={portfolio.profile} copy={copy} />
+        <AboutSection profile={portfolio.profile} copy={copy} />
+        <SkillsSection skills={portfolio.skills} />
+        <ProjectsSection projects={portfolio.projects} />
+        <TimelineSection
+          id="experience"
+          eyebrow="Practice"
+          title="Experience"
+          items={portfolio.experience}
+        />
+        <TimelineSection
+          id="organization"
+          eyebrow="Beyond code"
+          title="Organization"
+          items={portfolio.organizations}
+        />
+        <CertificatesSection certificates={portfolio.certificates} />
+        <ContactSection contacts={portfolio.contacts} />
+      </main>
+    </div>
   )
 }
