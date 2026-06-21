@@ -88,7 +88,7 @@ a:focus-visible {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 30;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -172,6 +172,8 @@ nav a:hover {
 }
 
 main {
+  position: relative;
+  z-index: 2;
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
 }
@@ -319,6 +321,43 @@ p {
   padding: 4.5rem 0;
 }
 
+.highlight-strip {
+  display: grid;
+  gap: 1rem;
+  padding: 0 0 2.5rem;
+}
+
+.highlight-card {
+  border-radius: 1.1rem;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--primary) 12%, transparent), transparent 56%),
+    var(--surface);
+  box-shadow:
+    var(--shadow-border),
+    0 18px 44px -34px color-mix(in srgb, var(--primary) 70%, transparent);
+  padding: 1rem;
+}
+
+.highlight-card strong,
+.highlight-card span {
+  display: block;
+}
+
+.highlight-card strong {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.highlight-card span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
 .section-heading {
   display: grid;
   gap: 0.2rem;
@@ -351,6 +390,37 @@ p {
   min-height: 4.2rem;
 }
 
+.project-card-link {
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  min-height: 16rem;
+  text-decoration: none;
+}
+
+.project-card-link:focus-visible {
+  outline-offset: 5px;
+}
+
+.project-card-link .badge-list {
+  margin-top: auto;
+}
+
+.project-card-topline,
+.gallery-kicker {
+  align-items: center;
+  color: var(--primary);
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 800;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.project-card-topline svg:last-child {
+  margin-left: auto;
+}
+
 .badge {
   border-radius: 999px;
   background: color-mix(in srgb, var(--primary) 14%, transparent);
@@ -375,6 +445,201 @@ p {
   min-height: 6rem;
 }
 
+.gallery-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.gallery-feature {
+  border-radius: 1.35rem;
+  background: var(--surface);
+  box-shadow:
+    var(--shadow-border),
+    0 28px 70px -52px color-mix(in srgb, var(--accent) 84%, transparent);
+  display: grid;
+  gap: 1rem;
+  overflow: hidden;
+  padding: 0.7rem;
+}
+
+.gallery-image-wrap {
+  border-radius: 0.9rem;
+  overflow: hidden;
+}
+
+.gallery-image-wrap img {
+  aspect-ratio: 16 / 10;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  outline-offset: -1px;
+  width: 100%;
+}
+
+.app-shell[data-mode="casual"] .gallery-image-wrap img,
+.app-shell[data-mode="casual"] .gallery-thumb img {
+  outline-color: rgba(0, 0, 0, 0.1);
+}
+
+.gallery-copy {
+  padding: 0.35rem 0.45rem 0.55rem;
+}
+
+.gallery-copy h3 {
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  line-height: 1;
+}
+
+.gallery-controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.gallery-controls button,
+.gallery-thumb {
+  align-items: center;
+  border: 0;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  transition-property: transform, background-color, color, box-shadow, opacity;
+  transition-duration: 160ms;
+  transition-timing-function: ease-out;
+}
+
+.gallery-controls button {
+  background: var(--surface-strong);
+  border-radius: 999px;
+  box-shadow: var(--shadow-border);
+  min-height: 44px;
+  width: 44px;
+}
+
+.gallery-controls button:active,
+.gallery-thumb:active {
+  transform: scale(0.96);
+}
+
+.gallery-track {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.gallery-thumb {
+  background: var(--surface);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-border);
+  gap: 0.75rem;
+  justify-content: flex-start;
+  min-height: 68px;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.gallery-thumb[data-active="true"] {
+  background: color-mix(in srgb, var(--primary) 18%, var(--surface));
+  box-shadow: var(--shadow-border-hover);
+}
+
+.gallery-thumb img {
+  aspect-ratio: 1;
+  border-radius: 0.7rem;
+  object-fit: cover;
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  outline-offset: -1px;
+  width: 52px;
+}
+
+.gallery-thumb span {
+  font-family: var(--font-display);
+  font-weight: 750;
+}
+
+.floating-3d-assets {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: 1;
+}
+
+.floating-asset {
+  align-items: center;
+  animation: float-asset 8s ease-in-out infinite;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--primary) 38%, transparent), transparent 54%),
+    linear-gradient(315deg, color-mix(in srgb, var(--accent) 32%, transparent), var(--surface));
+  box-shadow:
+    var(--shadow-border),
+    18px 24px 44px -34px color-mix(in srgb, var(--primary) 80%, transparent);
+  color: color-mix(in srgb, var(--text) 88%, transparent);
+  display: flex;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  justify-content: center;
+  opacity: 0.48;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.floating-cube {
+  border-radius: 1.1rem;
+  height: 5.2rem;
+  right: 7vw;
+  top: 18vh;
+  transform: rotateX(58deg) rotateZ(38deg);
+  width: 5.2rem;
+}
+
+.floating-ring {
+  border-radius: 999px;
+  height: 7rem;
+  left: -2.5rem;
+  top: 42vh;
+  transform: rotateX(66deg) rotateY(18deg);
+  width: 7rem;
+}
+
+.floating-ring::after {
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1.8rem var(--bg);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.floating-slab {
+  border-radius: 1.3rem;
+  bottom: 14vh;
+  height: 3.8rem;
+  right: -1.5rem;
+  transform: rotateX(58deg) rotateY(-16deg) rotateZ(-20deg);
+  width: 8rem;
+}
+
+.floating-chip {
+  border-radius: 1rem;
+  height: 4.5rem;
+  left: 8vw;
+  top: 12vh;
+  transform: rotateX(50deg) rotateY(-24deg) rotateZ(18deg);
+  width: 4.5rem;
+}
+
+@keyframes float-asset {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -18px;
+  }
+}
+
 @media (min-width: 768px) {
   nav {
     display: flex;
@@ -390,7 +655,26 @@ p {
 
   .skill-grid,
   .card-grid,
-  .certificate-list {
+  .certificate-list,
+  .highlight-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .highlight-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .gallery-feature {
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+    padding: 0.8rem;
+  }
+
+  .gallery-copy {
+    align-self: end;
+    padding: 1.25rem;
+  }
+
+  .gallery-track {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
