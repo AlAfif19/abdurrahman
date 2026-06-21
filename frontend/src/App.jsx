@@ -25,7 +25,6 @@ export default function App() {
         mode={mode}
         navItems={copy.nav}
         switchLabel={copy.switchLabel}
-        switchText={copy.switchText}
         onToggleMode={() => setMode(nextMode)}
       />
       <main>

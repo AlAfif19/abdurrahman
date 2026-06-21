@@ -26,12 +26,14 @@ export const portfolio = {
     professional: {
       role: 'Pengembang AI/ML dan Lulusan Teknik Informatika',
       nav: [
-        ['Profil', '#about'],
-        ['Tech Stack', '#skills'],
-        ['Project IT', '#projects'],
+        ['Beranda', '#top'],
+        ['Tentang', '#about'],
+        ['Skill', '#skills'],
+        ['Project', '#projects'],
         ['Pengalaman', '#experience'],
         ['Pendidikan', '#education'],
         ['Sertifikat', '#certificates'],
+        ['Kontak', '#contact'],
       ],
       summary:
         'Fresh graduate Teknik Informatika dengan fokus Machine Learning, NLP, RAG, LLM, data science, integrasi web, dan software quality.',
@@ -43,7 +45,8 @@ export const portfolio = {
     casual: {
       role: 'Penggerak Organisasi, Pembicara, dan Performer',
       nav: [
-        ['Profil', '#about'],
+        ['Beranda', '#top'],
+        ['Tentang', '#about'],
         ['Organisasi', '#organization'],
         ['Galeri', '#gallery'],
         ['Sertifikat', '#certificates'],
@@ -121,7 +124,7 @@ export const portfolio = {
           title: 'S1 Teknik Informatika',
           meta: 'Universitas Kebangsaan Republik Indonesia / 2022 - 2026',
           description:
-            'IPK 3,90 / 4,00 (Cumlaude). Nilai tertinggi mata kuliah Artificial Intelligence. Fokus implementasi model AI dengan CRISP-DM dan tugas akhir Web Clustering Customer.',
+            'IPK 3,90 / 4,00 (Cumlaude). Peraih nilai tertinggi mata kuliah Artificial Intelligence. Fokus implementasi model AI dengan CRISP-DM dan tugas akhir Web Clustering Customer.',
           image: transcriptImage,
           imageAlt: 'Pratinjau transkrip nilai Al Afif Abdurrahman',
           actionHref: '/assets/Transkrip_Nilai.png',

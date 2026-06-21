@@ -148,3 +148,17 @@ test('renders an expanded set of floating 3d assets', () => {
 
   expect(screen.getByTestId('floating-3d-assets').children).toHaveLength(8)
 })
+
+test('professional hero follows the supplied target composition', () => {
+  render(<App />)
+
+  expect(screen.getByAltText(/hero profesional target/i)).toBeInTheDocument()
+  expect(screen.getByText('Abdurrahman')).toHaveClass('hero-name-accent')
+  expect(screen.getByText(/scroll untuk menjelajahi/i)).toBeInTheDocument()
+})
+
+test('uses the revised academic achievement wording', () => {
+  render(<App />)
+
+  expect(screen.getByText(/peraih nilai tertinggi mata kuliah artificial intelligence/i)).toBeInTheDocument()
+})

@@ -93,7 +93,7 @@ a:focus-visible {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1rem;
-  width: min(1120px, calc(100% - 2rem));
+  width: min(1540px, calc(100% - 3rem));
   margin: 0 auto;
   padding: 1rem 0;
   backdrop-filter: blur(18px);
@@ -127,10 +127,12 @@ a:focus-visible {
 }
 
 .brand {
-  width: 44px;
-  background: var(--text);
-  color: var(--bg);
-  box-shadow: var(--shadow-border);
+  background: transparent;
+  box-shadow: none;
+  color: var(--primary);
+  font-size: 1.65rem;
+  font-weight: 900;
+  width: auto;
 }
 
 nav {
@@ -156,13 +158,69 @@ nav a:hover {
   color: var(--text);
 }
 
+nav a:first-child {
+  color: var(--primary);
+  position: relative;
+}
+
+nav a:first-child::after {
+  background: var(--primary);
+  bottom: 0.2rem;
+  content: "";
+  height: 2px;
+  left: 0.9rem;
+  position: absolute;
+  right: 0.9rem;
+}
+
 .mode-toggle {
   border: 0;
   background: var(--surface-strong);
   color: var(--text);
   cursor: pointer;
-  padding: 0 1rem;
+  gap: 0.65rem;
+  padding: 0.35rem 0.8rem;
   box-shadow: var(--shadow-border);
+}
+
+.mode-option {
+  color: var(--muted);
+  font-size: 0.82rem;
+  transition-property: color;
+  transition-duration: 160ms;
+}
+
+.mode-option[data-active="true"] {
+  color: var(--primary);
+}
+
+.mode-switch-track {
+  background: color-mix(in srgb, var(--primary) 42%, var(--surface));
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary) 55%, transparent);
+  display: block;
+  height: 24px;
+  position: relative;
+  width: 44px;
+}
+
+.mode-switch-knob {
+  background: var(--primary);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+  height: 18px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  transform: translateX(20px);
+  transition-property: transform, background-color;
+  transition-duration: 180ms;
+  transition-timing-function: ease-out;
+  width: 18px;
+}
+
+.app-shell[data-mode="casual"] .mode-switch-knob {
+  transform: translateX(0);
 }
 
 .mode-toggle:hover,
@@ -187,13 +245,13 @@ main {
   margin-left: calc(50% - 50vw);
   min-height: max(680px, calc(100dvh - 4rem));
   overflow: hidden;
-  padding: 4rem max(1rem, calc((100vw - 1120px) / 2));
+  padding: 4rem clamp(1.25rem, 4vw, 4rem);
   width: 100vw;
 }
 
 .hero-section::after {
   background:
-    linear-gradient(90deg, rgba(2, 6, 23, 0.94) 0%, rgba(2, 6, 23, 0.68) 46%, rgba(2, 6, 23, 0.06) 100%),
+    linear-gradient(90deg, #020617 0%, #020617 52%, rgba(2, 6, 23, 0.64) 62%, rgba(2, 6, 23, 0.02) 100%),
     linear-gradient(0deg, rgba(2, 6, 23, 0.72) 0%, transparent 45%);
   content: "";
   inset: 0;
@@ -219,8 +277,13 @@ main {
 }
 
 .app-shell[data-mode="professional"] .hero-background img {
-  object-fit: contain;
-  object-position: 88% bottom;
+  object-fit: cover;
+  object-position: center;
+}
+
+.app-shell[data-mode="professional"] .hero-background {
+  bottom: 0;
+  top: -5rem;
 }
 
 .app-shell[data-mode="casual"] .hero-background img {
@@ -283,6 +346,18 @@ h1 {
   max-width: 11ch;
 }
 
+.hero-name-line {
+  display: block;
+}
+
+.hero-name-accent {
+  background: linear-gradient(90deg, #1597ff 0%, #3478ff 56%, #7c4dff 100%);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 h2 {
   font-size: clamp(2rem, 6vw, 3.75rem);
   font-weight: 700;
@@ -313,6 +388,19 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+}
+
+.hero-scroll-hint {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.58);
+  display: flex;
+  font-size: 0.92rem;
+  gap: 0.75rem;
+  margin-top: clamp(3rem, 10vh, 7rem);
+}
+
+.hero-scroll-hint svg {
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .primary-action,
@@ -1050,6 +1138,20 @@ p {
   .footer-grid {
     align-items: start;
     grid-template-columns: 1.4fr 1fr auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-scroll-hint {
+    display: none;
+  }
+
+  .mode-option {
+    display: none;
+  }
+
+  .mode-toggle {
+    padding-inline: 0.6rem;
   }
 }
 
