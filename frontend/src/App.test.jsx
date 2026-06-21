@@ -106,3 +106,31 @@ test('CV and certificate assets are directly downloadable', () => {
   expect(screen.getAllByAltText(/sertifikat/i)).not.toHaveLength(0)
   expect(screen.getAllByRole('link', { name: /unduh sertifikat/i })[0]).toHaveAttribute('download')
 })
+
+test('professional mode includes complete core CV data', () => {
+  render(<App />)
+
+  expect(screen.getByText(/it support intern/i)).toBeInTheDocument()
+  expect(screen.getByText(/bagian pelayanan dan operator/i)).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /pendidikan/i })).toBeInTheDocument()
+  expect(screen.getByText(/ipk 3,90/i)).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /project software quality assurance/i })).toBeInTheDocument()
+})
+
+test('casual mode includes organization, speaker, and performer history', async () => {
+  const user = userEvent.setup()
+  render(<App />)
+
+  await user.click(screen.getByRole('button', { name: /alih ke mode casual/i }))
+  expect(screen.getAllByText(/ketua komisi i bidang legislasi/i)).not.toHaveLength(0)
+  expect(screen.getAllByText(/speaker.*voyage of discovery/i)).not.toHaveLength(0)
+  expect(screen.getAllByText(/performer artist/i)).not.toHaveLength(0)
+})
+
+test('hero uses the selected portrait as a full background', () => {
+  render(<App />)
+
+  expect(screen.getByTestId('hero-background')).toContainElement(
+    screen.getByAltText(/potret profesional/i),
+  )
+})

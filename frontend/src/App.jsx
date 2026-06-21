@@ -31,7 +31,7 @@ export default function App() {
       <main>
         <HeroSection profile={portfolio.profile} copy={copy} mode={mode} />
         <AboutSection profile={portfolio.profile} copy={copy} about={content.about} />
-        <section className="highlight-strip" aria-label="Profile highlights">
+        <section className="highlight-strip" aria-label="Sorotan profil">
           {content.highlights.map((highlight) => (
             <article className="highlight-card" key={highlight.value}>
               <strong>{highlight.value}</strong>
@@ -48,6 +48,12 @@ export default function App() {
               eyebrow="Praktik profesional"
               title="Pengalaman IT"
               items={content.experience}
+            />
+            <TimelineSection
+              id="education"
+              eyebrow="Latar akademik"
+              title="Pendidikan"
+              items={content.education}
             />
           </>
         ) : (

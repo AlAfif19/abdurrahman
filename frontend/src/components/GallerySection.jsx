@@ -4,6 +4,11 @@ import SectionShell from './SectionShell'
 import leadershipStage from '../assets/gallery-leadership-stage.jpeg'
 import organizationTeam from '../assets/gallery-organization-team.jpeg'
 import publicSpeaking from '../assets/gallery-public-speaking.jpeg'
+import campusEvent from '../assets/gallery-campus-event.jpeg'
+import communityVisit from '../assets/gallery-community-visit.jpeg'
+import dpmTeam from '../assets/gallery-dpm-team.jpeg'
+import organizationMeeting from '../assets/gallery-organization-meeting.jpeg'
+import presentation from '../assets/gallery-presentation.jpeg'
 
 const galleryItems = [
   {
@@ -23,6 +28,36 @@ const galleryItems = [
     caption: 'Mewakili kegiatan dan menyampaikan pesan dengan komunikasi yang percaya diri.',
     image: publicSpeaking,
     alt: 'Momen public speaking dalam kegiatan kampus',
+  },
+  {
+    title: 'Kegiatan Kampus',
+    caption: 'Terlibat aktif dalam kegiatan mahasiswa dan lingkungan kampus.',
+    image: campusEvent,
+    alt: 'Al Afif dalam kegiatan mahasiswa di kampus',
+  },
+  {
+    title: 'Kunjungan Komunitas',
+    caption: 'Membangun hubungan dan menyampaikan apresiasi dalam kegiatan sosial.',
+    image: communityVisit,
+    alt: 'Al Afif dalam kunjungan komunitas',
+  },
+  {
+    title: 'Rekan DPM',
+    caption: 'Bekerja bersama rekan organisasi dalam menjalankan fungsi kelembagaan.',
+    image: dpmTeam,
+    alt: 'Al Afif bersama rekan DPM UKRI',
+  },
+  {
+    title: 'Rapat Organisasi',
+    caption: 'Koordinasi, evaluasi, dan diskusi menjadi bagian penting dari kepemimpinan.',
+    image: organizationMeeting,
+    alt: 'Rapat organisasi DPM UKRI',
+  },
+  {
+    title: 'Presentasi Akademik',
+    caption: 'Menyampaikan gagasan secara terstruktur dalam forum akademik.',
+    image: presentation,
+    alt: 'Al Afif melakukan presentasi akademik',
   },
 ]
 

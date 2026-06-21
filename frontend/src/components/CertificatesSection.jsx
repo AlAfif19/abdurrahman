@@ -12,9 +12,9 @@ export default function CertificatesSection({ certificates }) {
             </div>
             <p className="eyebrow">{certificate.meta}</p>
             <h3>{certificate.title}</h3>
-            <a className="certificate-download" href={certificate.href} download>
+            {certificate.href ? <a className="certificate-download" href={certificate.href} download>
               Unduh Sertifikat <Download size={17} aria-hidden="true" />
-            </a>
+            </a> : <span className="certificate-note">Tercantum pada CV</span>}
           </article>
         ))}
       </div>

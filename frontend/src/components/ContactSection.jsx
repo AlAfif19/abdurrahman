@@ -1,10 +1,11 @@
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Github, Linkedin, Mail, MessageCircle } from 'lucide-react'
 import SectionShell from './SectionShell'
 
 const icons = {
   Email: Mail,
   LinkedIn: Linkedin,
   GitHub: Github,
+  WhatsApp: MessageCircle,
 }
 
 export default function ContactSection({ contacts }) {

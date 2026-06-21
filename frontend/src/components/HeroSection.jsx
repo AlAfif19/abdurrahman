@@ -18,6 +18,15 @@ export default function HeroSection({ profile, copy, mode }) {
   return (
     <section id="top" className="hero-section">
       <motion.div
+        className="hero-background"
+        data-testid="hero-background"
+        initial={{ opacity: 0, scale: 1.02 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+      >
+        <img src={portrait.src} alt={portrait.alt} />
+      </motion.div>
+      <motion.div
         className="hero-copy"
         initial="hidden"
         animate="visible"
@@ -59,14 +68,6 @@ export default function HeroSection({ profile, copy, mode }) {
             {copy.secondaryLabel} <ArrowRight size={18} aria-hidden="true" />
           </a>
         </div>
-      </motion.div>
-      <motion.div
-        className="portrait-frame"
-        initial={{ opacity: 0, scale: 0.96, filter: 'blur(6px)' }}
-        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-        transition={{ duration: 0.4, ease: 'easeOut' }}
-      >
-        <img src={portrait.src} alt={portrait.alt} />
       </motion.div>
     </section>
   )
