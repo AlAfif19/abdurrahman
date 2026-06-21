@@ -18,7 +18,7 @@ export default function App() {
     <div className="app-shell" data-mode={mode} data-testid="portfolio-app">
       <Navbar mode={mode} switchLabel={copy.switchLabel} onToggleMode={() => setMode(nextMode)} />
       <main>
-        <HeroSection profile={portfolio.profile} copy={copy} />
+        <HeroSection profile={portfolio.profile} copy={copy} mode={mode} />
         <AboutSection profile={portfolio.profile} copy={copy} />
         <SkillsSection skills={portfolio.skills} />
         <ProjectsSection projects={portfolio.projects} />

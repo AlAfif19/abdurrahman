@@ -1,8 +1,20 @@
 import { ArrowRight, Send } from 'lucide-react'
 import { motion } from 'motion/react'
-import profileImage from '../assets/profile.jpeg'
+import casualPortrait from '../assets/casual-portrait.jpeg'
+import professionalPortrait from '../assets/professional-portrait.jpeg'
 
-export default function HeroSection({ profile, copy }) {
+export default function HeroSection({ profile, copy, mode }) {
+  const portrait =
+    mode === 'professional'
+      ? {
+          src: professionalPortrait,
+          alt: `${profile.name} professional portrait`,
+        }
+      : {
+          src: casualPortrait,
+          alt: `${profile.name} casual performance portrait`,
+        }
+
   return (
     <section id="top" className="hero-section">
       <motion.div
@@ -54,7 +66,7 @@ export default function HeroSection({ profile, copy }) {
         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
       >
-        <img src={profileImage} alt={`${profile.name} portrait`} />
+        <img src={portrait.src} alt={portrait.alt} />
       </motion.div>
     </section>
   )

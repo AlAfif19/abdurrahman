@@ -34,3 +34,12 @@ test('marks the app root with the active visual mode', async () => {
   await user.click(screen.getByRole('button', { name: /switch to casual mode/i }))
   expect(screen.getByTestId('portfolio-app')).toHaveAttribute('data-mode', 'casual')
 })
+
+test('uses different portrait treatments for professional and casual modes', async () => {
+  const user = userEvent.setup()
+  render(<App />)
+
+  expect(screen.getByAltText(/professional portrait/i)).toBeInTheDocument()
+  await user.click(screen.getByRole('button', { name: /switch to casual mode/i }))
+  expect(screen.getByAltText(/casual performance portrait/i)).toBeInTheDocument()
+})
