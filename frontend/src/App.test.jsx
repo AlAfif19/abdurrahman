@@ -134,3 +134,17 @@ test('hero uses the selected portrait as a full background', () => {
     screen.getByAltText(/potret profesional/i),
   )
 })
+
+test('professional education provides a transcript download', () => {
+  render(<App />)
+
+  const transcriptLink = screen.getByRole('link', { name: /unduh transkrip nilai/i })
+  expect(transcriptLink).toHaveAttribute('download')
+  expect(transcriptLink).toHaveAttribute('href', expect.stringContaining('Transkrip_Nilai.png'))
+})
+
+test('renders an expanded set of floating 3d assets', () => {
+  render(<App />)
+
+  expect(screen.getByTestId('floating-3d-assets').children).toHaveLength(8)
+})

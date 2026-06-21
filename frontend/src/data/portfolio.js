@@ -4,6 +4,7 @@ import itLearnCertificate from '../assets/certificate-it-learn.png'
 import ombakCertificate from '../assets/certificate-ombak.png'
 import ragDashboard from '../assets/project-rag-dashboard.png'
 import segmentasiDashboard from '../assets/project-segmentasi-dashboard.png'
+import transcriptImage from '../assets/transkrip-nilai.png'
 
 export const portfolio = {
   profile: {
@@ -121,17 +122,21 @@ export const portfolio = {
           meta: 'Universitas Kebangsaan Republik Indonesia / 2022 - 2026',
           description:
             'IPK 3,90 / 4,00 (Cumlaude). Nilai tertinggi mata kuliah Artificial Intelligence. Fokus implementasi model AI dengan CRISP-DM dan tugas akhir Web Clustering Customer.',
+          image: transcriptImage,
+          imageAlt: 'Pratinjau transkrip nilai Al Afif Abdurrahman',
+          actionHref: '/assets/Transkrip_Nilai.png',
+          actionLabel: 'Unduh Transkrip Nilai',
         },
       ],
       certificates: [
-        { title: 'Trial Bootcamp Data Science & AI', meta: 'Intelligo ID, 2025', image: portfolioAiCertificate, href: '/assets/Intelligo_Data_Science_AI.pdf' },
-        { title: 'Praktek Kerja Industri', meta: 'PT DiAntara Inter Media, 2025', image: itLearnCertificate, href: '/assets/Praktek_Kerja_Industri_DiAntara.pdf' },
+        { title: 'Trial Bootcamp Data Science & AI', meta: 'Intelligo ID, 2025', previewType: 'pdf', href: '/assets/Intelligo_Data_Science_AI.pdf' },
+        { title: 'Praktek Kerja Industri', meta: 'PT DiAntara Inter Media, 2025', previewType: 'pdf', href: '/assets/Praktek_Kerja_Industri_DiAntara.pdf' },
         { title: 'Build Your Modern Portfolio Website with an AI Chatbot', meta: 'HMIF x HMSI UKRI, 2026', image: portfolioAiCertificate, href: '/assets/AI_Al_Afif_Abdurrahman.pdf' },
-        { title: 'The Bits and Bytes of Computer Networking', meta: 'Coursera, 2025', image: itLearnCertificate, href: '/assets/Coursera_IT_Support.pdf' },
-        { title: 'Private Cloud Berbasis Ubuntu untuk UMKM', meta: 'Teknik Informatika UKRI, 2025', image: portfolioAiCertificate },
-        { title: 'Software Development Seminar', meta: 'Teknik Informatika UKRI, 2024', image: itLearnCertificate },
-        { title: 'AI in Science: Pioneering Research and Applications', meta: 'International Seminar, 2025', image: portfolioAiCertificate },
-        { title: 'Humanoid Robots, AI, dan Lake Data', meta: 'Teknik Informatika UKRI, 2024', image: itLearnCertificate },
+        { title: 'The Bits and Bytes of Computer Networking', meta: 'Coursera, 2025', previewType: 'pdf', href: '/assets/Coursera_IT_Support.pdf' },
+        { title: 'Private Cloud Berbasis Ubuntu untuk UMKM', meta: 'Teknik Informatika UKRI, 2025' },
+        { title: 'Software Development Seminar', meta: 'Teknik Informatika UKRI, 2024' },
+        { title: 'AI in Science: Pioneering Research and Applications', meta: 'International Seminar, 2025' },
+        { title: 'Humanoid Robots, AI, dan Lake Data', meta: 'Teknik Informatika UKRI, 2024' },
       ],
     },
     casual: {
@@ -170,7 +175,7 @@ export const portfolio = {
         },
       ],
       certificates: [
-        { title: 'BOMS Speaker', meta: 'Public speaking dan kontribusi acara', image: humasCertificate, href: '/assets/BOMS_Speaker.pdf' },
+        { title: 'BOMS Speaker', meta: 'Public speaking dan kontribusi acara', previewType: 'pdf', href: '/assets/BOMS_Speaker.pdf' },
         { title: 'OMBAK 2022', meta: 'Penghargaan kegiatan mahasiswa', image: ombakCertificate, href: ombakCertificate },
         { title: 'Webinar Dasar-dasar Humas', meta: 'Komunikasi publik, 2025', image: humasCertificate, href: humasCertificate },
         { title: 'IT Learn 2022', meta: 'Kegiatan mahasiswa Informatika', image: itLearnCertificate, href: itLearnCertificate },

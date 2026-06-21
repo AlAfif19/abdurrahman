@@ -3,6 +3,10 @@ const assets = [
   ['floating-ring', 'UX'],
   ['floating-slab', 'QA'],
   ['floating-chip', 'ML'],
+  ['floating-sphere', 'DATA'],
+  ['floating-prism', 'WEB'],
+  ['floating-capsule', 'CV'],
+  ['floating-disc', 'UI'],
 ]
 
 export default function Floating3DAssets() {

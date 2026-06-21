@@ -185,7 +185,7 @@ main {
   align-items: center;
   isolation: isolate;
   margin-left: calc(50% - 50vw);
-  min-height: calc(100dvh - 4rem);
+  min-height: max(680px, calc(100dvh - 4rem));
   overflow: hidden;
   padding: 4rem max(1rem, calc((100vw - 1120px) / 2));
   width: 100vw;
@@ -193,7 +193,7 @@ main {
 
 .hero-section::after {
   background:
-    linear-gradient(90deg, rgba(2, 6, 23, 0.94) 0%, rgba(2, 6, 23, 0.7) 48%, rgba(2, 6, 23, 0.18) 100%),
+    linear-gradient(90deg, rgba(2, 6, 23, 0.94) 0%, rgba(2, 6, 23, 0.68) 46%, rgba(2, 6, 23, 0.06) 100%),
     linear-gradient(0deg, rgba(2, 6, 23, 0.72) 0%, transparent 45%);
   content: "";
   inset: 0;
@@ -203,6 +203,7 @@ main {
 }
 
 .hero-background {
+  background: #020617;
   inset: 0;
   position: absolute;
   z-index: -2;
@@ -217,8 +218,14 @@ main {
   width: 100%;
 }
 
+.app-shell[data-mode="professional"] .hero-background img {
+  object-fit: contain;
+  object-position: 88% bottom;
+}
+
 .app-shell[data-mode="casual"] .hero-background img {
   filter: saturate(1.05) contrast(1.04);
+  object-fit: cover;
   object-position: 55% 42%;
 }
 
@@ -386,11 +393,14 @@ p {
 }
 
 .certificate-card {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   padding: 0.75rem;
 }
 
 .certificate-image {
+  aspect-ratio: 16 / 10;
   border-radius: 0.75rem;
   margin-bottom: 1.1rem;
   overflow: hidden;
@@ -399,10 +409,46 @@ p {
 .certificate-image img {
   aspect-ratio: 16 / 10;
   display: block;
-  object-fit: cover;
+  background: #ffffff;
+  object-fit: contain;
   outline: 1px solid rgba(255, 255, 255, 0.1);
   outline-offset: -1px;
   width: 100%;
+}
+
+.certificate-pdf iframe {
+  background: #ffffff;
+  border: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.certificate-placeholder {
+  align-items: flex-start;
+  aspect-ratio: 16 / 10;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--primary) 18%, transparent), transparent 58%),
+    var(--surface-strong);
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 1.1rem;
+  padding: 1.25rem;
+}
+
+.certificate-placeholder span {
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+}
+
+.certificate-placeholder strong {
+  font-family: var(--font-display);
+  line-height: 1.25;
 }
 
 .certificate-download {
@@ -413,6 +459,7 @@ p {
   font-weight: 750;
   gap: 0.45rem;
   min-height: 44px;
+  margin-top: auto;
   text-decoration: none;
 }
 
@@ -420,8 +467,34 @@ p {
   color: var(--muted);
   display: inline-flex;
   font-size: 0.9rem;
+  margin-top: auto;
   min-height: 44px;
   align-items: center;
+}
+
+.timeline-media {
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  max-height: 18rem;
+  overflow: hidden;
+}
+
+.timeline-media img {
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+}
+
+.timeline-action {
+  align-items: center;
+  color: var(--primary);
+  display: inline-flex;
+  font-family: var(--font-display);
+  font-weight: 750;
+  gap: 0.45rem;
+  min-height: 44px;
+  text-decoration: none;
 }
 
 .portrait-frame::before {
@@ -789,6 +862,46 @@ p {
   width: 4.5rem;
 }
 
+.floating-sphere {
+  animation-delay: -1.5s;
+  border-radius: 999px;
+  bottom: 30vh;
+  height: 4.6rem;
+  left: 4vw;
+  transform: rotateX(28deg) rotateY(34deg);
+  width: 4.6rem;
+}
+
+.floating-prism {
+  animation-delay: -3s;
+  border-radius: 0.6rem 1.5rem 0.6rem 1.5rem;
+  height: 5rem;
+  right: 12vw;
+  top: 52vh;
+  transform: rotateX(54deg) rotateZ(28deg);
+  width: 3.8rem;
+}
+
+.floating-capsule {
+  animation-delay: -4.5s;
+  border-radius: 999px;
+  bottom: 5vh;
+  height: 3.2rem;
+  left: 28vw;
+  transform: rotateY(44deg) rotateZ(-18deg);
+  width: 7.2rem;
+}
+
+.floating-disc {
+  animation-delay: -6s;
+  border-radius: 50%;
+  height: 5.5rem;
+  right: 30vw;
+  top: 28vh;
+  transform: rotateX(72deg) rotateZ(12deg);
+  width: 5.5rem;
+}
+
 .site-footer {
   background: color-mix(in srgb, var(--text) 94%, var(--bg));
   color: var(--bg);
@@ -886,7 +999,7 @@ p {
 
   .hero-section {
     grid-template-columns: minmax(0, 1fr);
-    min-height: calc(100dvh - 3rem);
+    min-height: max(760px, calc(100dvh - 3rem));
   }
 
   .hero-copy {
@@ -931,11 +1044,7 @@ p {
   }
 
   .certificate-bento {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .certificate-card:first-child {
-    grid-row: span 2;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .footer-grid {
