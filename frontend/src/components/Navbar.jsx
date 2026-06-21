@@ -1,3 +1,5 @@
+import { BriefcaseBusiness, Sparkles } from 'lucide-react'
+
 const navItems = [
   ['About', '#about'],
   ['Skills', '#skills'],
@@ -20,6 +22,7 @@ export default function Navbar({ mode, switchLabel, onToggleMode }) {
         ))}
       </nav>
       <button className="mode-toggle" type="button" onClick={onToggleMode} aria-label={switchLabel}>
+        {mode === 'professional' ? <BriefcaseBusiness size={16} /> : <Sparkles size={16} />}
         <span>{mode === 'professional' ? 'Professional' : 'Casual'}</span>
       </button>
     </header>

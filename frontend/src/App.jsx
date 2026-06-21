@@ -15,7 +15,7 @@ export default function App() {
   const nextMode = mode === 'professional' ? 'casual' : 'professional'
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-mode={mode} data-testid="portfolio-app">
       <Navbar mode={mode} switchLabel={copy.switchLabel} onToggleMode={() => setMode(nextMode)} />
       <main>
         <HeroSection profile={portfolio.profile} copy={copy} />

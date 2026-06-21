@@ -25,3 +25,12 @@ test('renders every PRD section', () => {
     expect(screen.getByRole('heading', { name })).toBeInTheDocument()
   }
 })
+
+test('marks the app root with the active visual mode', async () => {
+  const user = userEvent.setup()
+  render(<App />)
+
+  expect(screen.getByTestId('portfolio-app')).toHaveAttribute('data-mode', 'professional')
+  await user.click(screen.getByRole('button', { name: /switch to casual mode/i }))
+  expect(screen.getByTestId('portfolio-app')).toHaveAttribute('data-mode', 'casual')
+})
