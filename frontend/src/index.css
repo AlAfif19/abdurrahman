@@ -39,6 +39,7 @@ a:focus-visible {
   --muted: #94a3b8;
   --ring: rgba(255, 255, 255, 0.1);
   --font-display: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
   --portrait-frame-radius: 44% 18% 32% 16% / 18% 28% 18% 34%;
   --portrait-image-radius: 38% 14% 28% 12% / 16% 24% 16% 30%;
   --portrait-aspect: 0.72;
@@ -55,6 +56,7 @@ a:focus-visible {
     radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 28rem),
     var(--bg);
   color: var(--text);
+  font-family: var(--font-body);
   transition-property: background-color, color;
   transition-duration: 240ms;
   transition-timing-function: ease-out;
@@ -62,14 +64,15 @@ a:focus-visible {
 
 .app-shell[data-mode="casual"] {
   --bg: #fff7ed;
-  --surface: rgba(255, 255, 255, 0.74);
-  --surface-strong: rgba(255, 255, 255, 0.92);
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.94);
   --primary: #f97316;
   --accent: #ec4899;
   --text: #1f2937;
   --muted: #6b7280;
   --ring: rgba(0, 0, 0, 0.1);
-  --font-display: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", Inter, ui-sans-serif, system-ui, sans-serif;
   --portrait-frame-radius: 28% 54% 34% 48% / 34% 26% 52% 28%;
   --portrait-image-radius: 24% 48% 30% 42% / 30% 22% 46% 24%;
   --portrait-aspect: 1;
@@ -83,6 +86,13 @@ a:focus-visible {
     0 0 0 1px rgba(0, 0, 0, 0.08),
     0 2px 8px -4px rgba(0, 0, 0, 0.14),
     0 18px 40px -24px rgba(31, 41, 55, 0.42);
+}
+
+.app-shell[data-mode="casual"] {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--primary) 8%, transparent), transparent 38%),
+    linear-gradient(180deg, transparent 68%, color-mix(in srgb, var(--accent) 8%, transparent)),
+    var(--bg);
 }
 
 .site-header {
@@ -212,7 +222,7 @@ nav a:first-child::after {
   left: 3px;
   position: absolute;
   top: 3px;
-  transform: translateX(20px);
+  transform: translateX(0);
   transition-property: transform, background-color;
   transition-duration: 180ms;
   transition-timing-function: ease-out;
@@ -220,7 +230,11 @@ nav a:first-child::after {
 }
 
 .app-shell[data-mode="casual"] .mode-switch-knob {
-  transform: translateX(0);
+  transform: translateX(20px);
+}
+
+section[id] {
+  scroll-margin-top: 5.5rem;
 }
 
 .mode-toggle:hover,
@@ -287,9 +301,80 @@ main {
 }
 
 .app-shell[data-mode="casual"] .hero-background img {
-  filter: saturate(1.05) contrast(1.04);
+  filter: brightness(1.65) saturate(1.06) contrast(0.88);
   object-fit: cover;
-  object-position: 55% 42%;
+  object-position: 55% 38%;
+}
+
+.app-shell[data-mode="casual"] .hero-section {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--primary) 10%, transparent), transparent 34%),
+    repeating-linear-gradient(90deg, transparent 0 79px, rgba(249, 115, 22, 0.07) 79px 80px),
+    linear-gradient(145deg, #fff7ed 0%, #fff1f2 52%, #fdf2f8 100%);
+}
+
+.app-shell[data-mode="casual"] .hero-section::after {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 247, 237, 0.99) 0%,
+    rgba(255, 247, 237, 0.96) 43%,
+    rgba(255, 247, 237, 0.62) 56%,
+    rgba(255, 247, 237, 0) 73%
+  );
+  z-index: 1;
+}
+
+.app-shell[data-mode="casual"] .hero-background {
+  background: #ffffff;
+  border-radius: 2rem 6rem 2rem 6rem;
+  bottom: 3rem;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 30px 70px -40px rgba(236, 72, 153, 0.5);
+  height: calc(100% - 7rem);
+  left: auto;
+  overflow: hidden;
+  right: clamp(1rem, 4vw, 4rem);
+  top: 4rem;
+  width: min(44vw, 570px);
+  z-index: 0;
+}
+
+.app-shell[data-mode="casual"] .hero-copy {
+  max-width: min(54vw, 720px);
+}
+
+.app-shell[data-mode="casual"] .hero-section h1,
+.app-shell[data-mode="casual"] .hero-section p {
+  color: var(--text);
+  text-shadow: none;
+}
+
+.app-shell[data-mode="casual"] .hero-section .eyebrow {
+  color: var(--accent);
+}
+
+.app-shell[data-mode="casual"] .hero-name-line {
+  font-weight: 600;
+}
+
+.app-shell[data-mode="casual"] .hero-name-accent {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background-clip: text;
+  font-style: italic;
+  font-weight: 500;
+  -webkit-background-clip: text;
+}
+
+.app-shell[data-mode="casual"] .hero-section .secondary-action {
+  background: rgba(255, 255, 255, 0.84);
+  color: var(--text);
+  box-shadow: 0 0 0 1px rgba(31, 41, 55, 0.14);
+}
+
+.app-shell[data-mode="casual"] .hero-scroll-hint,
+.app-shell[data-mode="casual"] .hero-scroll-hint svg {
+  color: var(--muted);
 }
 
 .hero-copy {
@@ -1142,6 +1227,34 @@ p {
 }
 
 @media (max-width: 767px) {
+  .app-shell[data-mode="casual"] .hero-section {
+    align-items: end;
+    padding-top: 22rem;
+  }
+
+  .app-shell[data-mode="casual"] .hero-section::after {
+    background: linear-gradient(
+      0deg,
+      rgba(255, 247, 237, 1) 0%,
+      rgba(255, 247, 237, 0.98) 50%,
+      rgba(255, 247, 237, 0.15) 78%,
+      rgba(255, 247, 237, 0) 100%
+    );
+  }
+
+  .app-shell[data-mode="casual"] .hero-background {
+    border-radius: 1.4rem 3.5rem 1.4rem 3.5rem;
+    height: 19rem;
+    left: 1rem;
+    right: 1rem;
+    top: 1rem;
+    width: auto;
+  }
+
+  .app-shell[data-mode="casual"] .hero-copy {
+    max-width: 100%;
+  }
+
   .hero-scroll-hint {
     display: none;
   }

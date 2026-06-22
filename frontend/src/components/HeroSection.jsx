@@ -19,6 +19,7 @@ export default function HeroSection({ profile, copy, mode }) {
     <section id="top" className="hero-section">
       <motion.div
         className="hero-background"
+        data-variant={mode === 'professional' ? 'professional-scene' : 'casual-panel'}
         data-testid="hero-background"
         initial={{ opacity: 0, scale: 1.02 }}
         animate={{ opacity: 1, scale: 1 }}

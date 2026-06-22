@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/vitest'
 import userEvent from '@testing-library/user-event'
+import { vi } from 'vitest'
 import App from './App'
 
 test('renders the portfolio owner name', () => {
@@ -161,4 +162,31 @@ test('uses the revised academic achievement wording', () => {
   render(<App />)
 
   expect(screen.getByText(/peraih nilai tertinggi mata kuliah artificial intelligence/i)).toBeInTheDocument()
+})
+
+test('toggle knob position matches the selected mode', async () => {
+  const user = userEvent.setup()
+  render(<App />)
+
+  expect(screen.getByTestId('mode-switch-knob')).toHaveAttribute('data-position', 'left')
+  await user.click(screen.getByRole('button', { name: /alih ke mode casual/i }))
+  expect(screen.getByTestId('mode-switch-knob')).toHaveAttribute('data-position', 'right')
+})
+
+test('casual mode uses a clear foreground portrait treatment', async () => {
+  const user = userEvent.setup()
+  render(<App />)
+
+  await user.click(screen.getByRole('button', { name: /alih ke mode casual/i }))
+  expect(screen.getByTestId('hero-background')).toHaveAttribute('data-variant', 'casual-panel')
+})
+
+test('navbar links trigger smooth scrolling', async () => {
+  const user = userEvent.setup()
+  const scrollIntoView = vi.fn()
+  Element.prototype.scrollIntoView = scrollIntoView
+  render(<App />)
+
+  await user.click(screen.getByRole('link', { name: 'Tentang' }))
+  expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' })
 })
