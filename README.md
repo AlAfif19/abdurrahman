@@ -155,7 +155,7 @@ Footer Casual mempertahankan CTA unduh CV, ringkasan narasi organisasi dan kepem
 
 ## Validasi Dokumentasi
 
-Screenshot di README dihasilkan dari build production menggunakan Vite preview pada `http://127.0.0.1:5187`. Build production diverifikasi dengan:
+Screenshot diREADME dihasilkan dari build production menggunakan Vite preview pada `http://127.0.0.1:5187`. Build production diverifikasi dengan:
 
 ```bash
 cd frontend
