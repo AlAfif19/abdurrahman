@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { portfolio } from './data/portfolio'
 import AboutSection from './components/AboutSection'
 import CertificatesSection from './components/CertificatesSection'
@@ -14,13 +14,26 @@ import TimelineSection from './components/TimelineSection'
 
 export default function App() {
   const [mode, setMode] = useState('professional')
+  const [heroPassed, setHeroPassed] = useState(false)
   const copy = portfolio.modeCopy[mode]
   const content = portfolio.content[mode]
   const nextMode = mode === 'professional' ? 'casual' : 'professional'
 
+  useEffect(() => {
+    const hero = document.querySelector('#top')
+    if (!hero || !('IntersectionObserver' in window)) return undefined
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setHeroPassed(!entry.isIntersecting && entry.boundingClientRect.bottom < 0)
+    })
+
+    observer.observe(hero)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="app-shell" data-mode={mode} data-testid="portfolio-app">
-      <Floating3DAssets />
+      <Floating3DAssets mode={mode} visible={heroPassed} />
       <Navbar
         mode={mode}
         navItems={copy.nav}
