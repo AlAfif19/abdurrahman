@@ -5,6 +5,10 @@ import ombakCertificate from '../assets/certificate-ombak.png'
 import ragDashboard from '../assets/project-rag-dashboard.png'
 import segmentasiDashboard from '../assets/project-segmentasi-dashboard.png'
 import transcriptImage from '../assets/transkrip-nilai.png'
+import projectDiagnoMed from '../assets/project-diagnomed.png'
+import projectPosWarung from '../assets/project-pos-warung.png'
+import projectAliyaWedding from '../assets/project-aliya-wedding.png'
+import projectKuromiCare from '../assets/project-kuromi-care.png'
 
 export const portfolio = {
   profile: {
@@ -79,9 +83,9 @@ export const portfolio = {
       },
       projects: [
         {
-          title: 'RAG Chatbot Desa: Digitalisasi Pelayanan',
+          title: 'Digitalisasi Pelayanan Desa berbasis RAG',
           summary:
-            'Chatbot pelayanan desa yang mengintegrasikan dokumen sebagai knowledge base dan LLM untuk jawaban natural, ringkas, serta relevan.',
+            'Mengembangkan sistem chatbot pelayanan desa berbasis Retrieval-Augmented Generation untuk membantu masyarakat mendapatkan informasi layanan secara cepat, ringkas, dan relevan dengan memanfaatkan LLM.',
           tags: ['RAG', 'LLM', 'FastAPI', 'Dashboard', 'WhatsApp'],
           github: 'https://github.com/AlAfif19/RAGchatbot-desa.git',
           image: ragDashboard,
@@ -89,9 +93,9 @@ export const portfolio = {
           featured: true,
         },
         {
-          title: 'Segmentasi Pelanggan: Web Clustering Customer',
+          title: 'Tugas Akhir: Web Clustering Customer',
           summary:
-            'Tugas akhir berupa sistem segmentasi pelanggan dengan K-Means Plus, visualisasi insight, Python, React, Flask, dan MySQL.',
+            'Mengembangkan sistem web segmentasi pelanggan yang mengintegrasikan algoritma clustering (Python K-Means Plus) dan visualisasi data untuk mendukung pengambilan keputusan bisnis dengan standar keamanan data.',
           tags: ['K-Means Plus', 'CRISP-DM', 'React', 'Flask', 'MySQL'],
           github: 'https://github.com/AlAfif19/segmentasi__pelanggan.git',
           image: segmentasiDashboard,
@@ -99,9 +103,49 @@ export const portfolio = {
           featured: true,
         },
         {
+          title: 'DiagnoMed RuleBasedMedic',
+          summary:
+            'Sistem pakar swamedikasi awal menggunakan metode inferensi Rule-Based Reasoning, Forward Chaining, Backward Chaining, dan Certainty Factor berbasis Laravel, MySQL, Tailwind CSS, dan Vite.',
+          tags: ['Laravel', 'MySQL', 'Tailwind CSS', 'Vite', 'Rule-Based Reasoning', 'Forward Chaining', 'Certainty Factor'],
+          github: 'https://github.com/AlAfif19/rulebasedmedic',
+          image: projectDiagnoMed,
+          imageAlt: 'Pratinjau landing page DiagnoMed',
+          featured: true,
+        },
+        {
+          title: 'Warung HPP',
+          summary:
+            'Platform digital pendukung operasional warung dan UMKM dengan modul kalkulator HPP untuk manajemen menu, pricing, dan analisis profitabilitas berbasis Next.js dan FastAPI.',
+          tags: ['Next.js', 'FastAPI', 'MySQL', 'Business Intelligence', 'HPP Calculator'],
+          github: 'https://github.com/AlAfif19/warung',
+          image: projectPosWarung,
+          imageAlt: 'Pratinjau dashboard Warung HPP',
+          featured: true,
+        },
+        {
+          title: 'JourneyHil Magical',
+          summary:
+            'Website interaktif bertema Magical Kuromi yang mengintegrasikan profil, story, pemutar musik, dan mini game Kuromi Care (virtual pet) dengan Framer Motion dan local storage.',
+          tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Virtual Pet'],
+          github: 'https://github.com/AlAfif19/journeyhil',
+          image: projectKuromiCare,
+          imageAlt: 'Pratinjau dashboard JourneyHil Magical',
+          featured: true,
+        },
+        {
+          title: 'Aliya Wedding Organizer',
+          summary:
+            'Landing page premium untuk wedding organizer dengan optimasi visual branding, UX, parallax scrolling, dan asset compression untuk meningkatkan user engagement.',
+          tags: ['HTML', 'CSS', 'JavaScript', 'Parallax Scrolling', 'Landing Page'],
+          github: 'https://github.com/AlAfif19/wedding',
+          image: projectAliyaWedding,
+          imageAlt: 'Pratinjau landing page Aliya Wedding',
+          featured: true,
+        },
+        {
           title: 'Project Software Quality Assurance',
           summary:
-            'Black-box testing dan security testing untuk memastikan aplikasi memenuhi standar fungsional dan bebas dari bug kritis sebelum deployment.',
+            'Melakukan black-box testing dan security testing pada aplikasi web untuk memastikan bebas dari bug kritis sebelum deployment.',
           tags: ['QA Tester', 'Black-box Testing', 'Security Testing'],
         },
       ],
