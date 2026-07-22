@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { act, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/vitest'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
@@ -58,15 +58,15 @@ test('professional mode only shows IT content with specific GitHub repositories'
   expect(screen.getByRole('heading', { name: /project it/i })).toBeInTheDocument()
   expect(screen.queryByRole('heading', { name: /organisasi/i })).not.toBeInTheDocument()
 
-  expect(screen.getByRole('link', { name: /rag chatbot desa/i })).toHaveAttribute(
+  expect(screen.getByRole('link', { name: /pelayanan desa/i })).toHaveAttribute(
     'href',
     'https://github.com/AlAfif19/RAGchatbot-desa.git',
   )
-  expect(screen.getByRole('link', { name: /segmentasi pelanggan/i })).toHaveAttribute(
+  expect(screen.getByRole('link', { name: /clustering customer/i })).toHaveAttribute(
     'href',
     'https://github.com/AlAfif19/segmentasi__pelanggan.git',
   )
-  expect(screen.getAllByAltText(/pratinjau dashboard/i)).toHaveLength(2)
+  expect(screen.getAllByAltText(/pratinjau dashboard/i)).toHaveLength(4)
 })
 
 test('casual mode only shows organization and non-IT content', async () => {
@@ -95,6 +95,55 @@ test('renders decorative floating 3d assets behind the portfolio', () => {
   render(<App />)
 
   expect(screen.getByTestId('floating-3d-assets')).toBeInTheDocument()
+})
+
+test('floating 3d artwork follows the selected portfolio persona', async () => {
+  const user = userEvent.setup()
+  render(<App />)
+
+  expect(screen.getByTestId('floating-3d-assets')).toHaveAttribute('data-mode', 'professional')
+  expect(screen.getByTestId('persona-3d-artwork')).toHaveAttribute('data-artwork', 'chip')
+  expect(screen.getByTestId('persona-3d-artwork')).toHaveAttribute('data-side', 'right')
+
+  await user.click(screen.getByRole('button', { name: /alih ke mode casual/i }))
+
+  expect(screen.getByTestId('floating-3d-assets')).toHaveAttribute('data-mode', 'casual')
+  expect(screen.getByTestId('persona-3d-artwork')).toHaveAttribute('data-artwork', 'paper')
+  expect(screen.getByTestId('persona-3d-artwork')).toHaveAttribute('data-side', 'left')
+})
+
+test('shows persona artwork only after the hero has passed', () => {
+  let observerCallback
+  const disconnect = vi.fn()
+
+  vi.stubGlobal(
+    'IntersectionObserver',
+    class {
+      constructor(callback) {
+        observerCallback = callback
+      }
+
+      observe() {}
+
+      disconnect() {
+        disconnect()
+      }
+    },
+  )
+
+  const { unmount } = render(<App />)
+  const artwork = screen.getByTestId('persona-3d-artwork')
+
+  expect(artwork).toHaveAttribute('data-visible', 'false')
+
+  act(() => {
+    observerCallback([{ isIntersecting: false, boundingClientRect: { bottom: -1 } }])
+  })
+
+  expect(artwork).toHaveAttribute('data-visible', 'true')
+  unmount()
+  expect(disconnect).toHaveBeenCalledOnce()
+  vi.unstubAllGlobals()
 })
 
 test('CV and certificate assets are directly downloadable', () => {
@@ -147,7 +196,7 @@ test('professional education provides a transcript download', () => {
 test('renders an expanded set of floating 3d assets', () => {
   render(<App />)
 
-  expect(screen.getByTestId('floating-3d-assets').children).toHaveLength(8)
+  expect(screen.getByTestId('floating-3d-assets').querySelectorAll('.floating-asset')).toHaveLength(8)
 })
 
 test('professional hero follows the supplied target composition', () => {
