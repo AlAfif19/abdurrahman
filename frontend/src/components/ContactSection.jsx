@@ -14,8 +14,16 @@ export default function ContactSection({ contacts }) {
       <div className="contact-list">
         {contacts.map((contact) => {
           const Icon = icons[contact.label]
+          const opensNewTab = contact.href.startsWith('https://')
+
           return (
-            <a className="contact-link" href={contact.href} key={contact.label}>
+            <a
+              className="contact-link"
+              href={contact.href}
+              key={contact.label}
+              target={opensNewTab ? '_blank' : undefined}
+              rel={opensNewTab ? 'noopener noreferrer' : undefined}
+            >
               {Icon ? <Icon size={18} aria-hidden="true" /> : null}
               {contact.label}
             </a>
