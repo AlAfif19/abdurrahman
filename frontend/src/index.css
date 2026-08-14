@@ -980,6 +980,8 @@ p {
 .gallery-thumb span {
   font-family: var(--font-display);
   font-weight: 750;
+  min-width: 0;
+  text-wrap: balance;
 }
 
 .floating-3d-assets {
