@@ -770,6 +770,7 @@ p {
   box-shadow:
     var(--shadow-border),
     0 18px 44px -38px color-mix(in srgb, var(--primary) 72%, transparent);
+  min-width: 0;
   padding: 1.25rem;
   transition-property: transform, box-shadow, background-color, border-color;
   transition-duration: 220ms;
