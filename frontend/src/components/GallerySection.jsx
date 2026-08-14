@@ -113,6 +113,7 @@ export default function GallerySection() {
               key={item.title}
               type="button"
               onClick={() => setActiveIndex(index)}
+              aria-current={index === activeIndex ? 'true' : undefined}
               aria-label={`Tampilkan ${item.title}`}
             >
               <img src={item.image} alt="" aria-hidden="true" loading="lazy" decoding="async" />
