@@ -57,7 +57,7 @@ export const portfolio = {
         ['Kontak', '#contact'],
       ],
       summary:
-        'Pengalaman memimpin organisasi, menyusun regulasi, mengelola acara, menjadi pembicara, dan tampil di depan audiens.',
+        'Pengalaman memimpin organisasi, menyusun regulasi, mengelola acara kampus, menjadi pembicara, dan tampil percaya diri di depan audiens.',
       switchLabel: 'Alih ke mode profesional',
       switchText: 'Casual',
       primaryLabel: 'Unduh CV',
