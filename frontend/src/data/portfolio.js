@@ -40,7 +40,7 @@ export const portfolio = {
         ['Kontak', '#contact'],
       ],
       summary:
-        'Fresh graduate Teknik Informatika dengan fokus Machine Learning, NLP, RAG, LLM, data science, integrasi web, dan software quality.',
+        'Fresh graduate Teknik Informatika yang membangun solusi Machine Learning, NLP, RAG, LLM, dashboard data, integrasi web, dan software quality.',
       switchLabel: 'Alih ke mode casual',
       switchText: 'Profesional',
       primaryLabel: 'Unduh CV',
