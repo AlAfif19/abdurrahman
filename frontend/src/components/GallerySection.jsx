@@ -82,7 +82,7 @@ export default function GallerySection() {
       <div className="gallery-layout">
         <article className="gallery-feature" aria-live="polite">
           <div className="gallery-image-wrap">
-            <img src={activeItem.image} alt={activeItem.alt} />
+            <img src={activeItem.image} alt={activeItem.alt} decoding="async" />
           </div>
           <div className="gallery-copy">
             <div className="gallery-kicker">
@@ -115,7 +115,7 @@ export default function GallerySection() {
               onClick={() => setActiveIndex(index)}
               aria-label={`Tampilkan ${item.title}`}
             >
-              <img src={item.image} alt="" aria-hidden="true" />
+              <img src={item.image} alt="" aria-hidden="true" loading="lazy" decoding="async" />
               <span>{item.title}</span>
             </button>
           ))}
