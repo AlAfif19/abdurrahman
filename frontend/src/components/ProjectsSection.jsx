@@ -8,23 +8,30 @@ export default function ProjectsSection({ projects }) {
         {projects.map((project) => {
           const content = (
             <>
-            {project.image ? <div className="project-thumb">
-              <img src={project.image} alt={project.imageAlt} loading="lazy" />
-            </div> : null}
-            <div className="project-card-topline">
-              <Github size={18} aria-hidden="true" />
-              <span>{project.github ? 'GitHub' : 'Studi QA'}</span>
-              {project.github ? <ExternalLink size={16} aria-hidden="true" /> : null}
-            </div>
-            <h3>{project.title}</h3>
-            <p>{project.summary}</p>
-            <div className="badge-list">
-              {project.tags.map((tag) => (
-                <span className="badge" key={tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
+              {project.image ? (
+                <div className="project-thumb">
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              ) : null}
+              <div className="project-card-topline">
+                <Github size={18} aria-hidden="true" />
+                <span>{project.github ? 'GitHub' : 'Studi QA'}</span>
+                {project.github ? <ExternalLink size={16} aria-hidden="true" /> : null}
+              </div>
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+              <div className="badge-list">
+                {project.tags.map((tag) => (
+                  <span className="badge" key={tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </>
           )
 
