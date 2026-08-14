@@ -12,8 +12,8 @@ import ProjectsSection from './components/ProjectsSection'
 import SkillsSection from './components/SkillsSection'
 import TimelineSection from './components/TimelineSection'
 
-export default function App() {
-  const [mode, setMode] = useState('professional')
+export default function App({ initialMode = 'professional' }) {
+  const [mode, setMode] = useState(initialMode)
   const [heroPassed, setHeroPassed] = useState(false)
   const copy = portfolio.modeCopy[mode]
   const content = portfolio.content[mode]

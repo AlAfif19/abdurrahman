@@ -1001,14 +1001,6 @@ p {
   will-change: transform, opacity;
 }
 
-.persona-3d-artwork[data-side="right"] {
-  filter: drop-shadow(-24px 34px 34px rgba(2, 6, 23, 0.46));
-  right: clamp(-12rem, -10vw, -7rem);
-  transform: translate3d(58%, -42%, 0) perspective(900px) rotateX(28deg) rotateY(-20deg) rotateZ(-8deg) scale(0.9);
-  transform-origin: right bottom;
-  width: min(36vw, 540px);
-}
-
 .persona-3d-artwork[data-side="left"] {
   filter: drop-shadow(26px 34px 32px rgba(190, 24, 93, 0.24));
   left: clamp(-13rem, -11vw, -8rem);
@@ -1020,10 +1012,6 @@ p {
 .persona-3d-artwork[data-visible="true"] {
   opacity: 0.68;
   visibility: visible;
-}
-
-.persona-3d-artwork[data-side="right"][data-visible="true"] {
-  transform: translate3d(0, -50%, 0) perspective(900px) rotateX(28deg) rotateY(-20deg) rotateZ(-8deg) scale(1);
 }
 
 .persona-3d-artwork[data-side="left"][data-visible="true"] {
@@ -1083,15 +1071,6 @@ p {
   right: -1.5rem;
   transform: rotateX(58deg) rotateY(-16deg) rotateZ(-20deg);
   width: 8rem;
-}
-
-.floating-chip {
-  border-radius: 1rem;
-  height: 4.5rem;
-  left: 8vw;
-  top: 12vh;
-  transform: rotateX(50deg) rotateY(-24deg) rotateZ(18deg);
-  width: 4.5rem;
 }
 
 .floating-sphere {
@@ -1307,12 +1286,6 @@ p {
 
   .persona-3d-artwork {
     top: 62%;
-  }
-
-  .persona-3d-artwork[data-side="right"] {
-    filter: drop-shadow(-14px 20px 22px rgba(2, 6, 23, 0.4));
-    right: -8rem;
-    width: min(72vw, 330px);
   }
 
   .persona-3d-artwork[data-side="left"] {

@@ -97,13 +97,12 @@ test('renders decorative floating 3d assets behind the portfolio', () => {
   expect(screen.getByTestId('floating-3d-assets')).toBeInTheDocument()
 })
 
-test('floating 3d artwork follows the selected portfolio persona', async () => {
+test('floating 3d artwork keeps paper for casual mode and removes the chip artwork', async () => {
   const user = userEvent.setup()
   render(<App />)
 
   expect(screen.getByTestId('floating-3d-assets')).toHaveAttribute('data-mode', 'professional')
-  expect(screen.getByTestId('persona-3d-artwork')).toHaveAttribute('data-artwork', 'chip')
-  expect(screen.getByTestId('persona-3d-artwork')).toHaveAttribute('data-side', 'right')
+  expect(screen.queryByTestId('persona-3d-artwork')).not.toBeInTheDocument()
 
   await user.click(screen.getByRole('button', { name: /alih ke mode casual/i }))
 
@@ -131,7 +130,7 @@ test('shows persona artwork only after the hero has passed', () => {
     },
   )
 
-  const { unmount } = render(<App />)
+  const { unmount } = render(<App initialMode="casual" />)
   const artwork = screen.getByTestId('persona-3d-artwork')
 
   expect(artwork).toHaveAttribute('data-visible', 'false')
@@ -193,10 +192,12 @@ test('professional education provides a transcript download', () => {
   expect(transcriptLink).toHaveAttribute('href', expect.stringContaining('Transkrip_Nilai.png'))
 })
 
-test('renders an expanded set of floating 3d assets', () => {
+test('renders floating 3d assets without the chip badge', () => {
   render(<App />)
 
-  expect(screen.getByTestId('floating-3d-assets').querySelectorAll('.floating-asset')).toHaveLength(8)
+  const floatingAssets = screen.getByTestId('floating-3d-assets').querySelectorAll('.floating-asset')
+  expect(floatingAssets).toHaveLength(7)
+  expect(screen.getByTestId('floating-3d-assets').querySelector('.floating-chip')).not.toBeInTheDocument()
 })
 
 test('professional hero follows the supplied target composition', () => {
