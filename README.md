@@ -36,6 +36,8 @@ npm run test -- --run
 - `foto/`: aset sumber berupa foto, sertifikat, CV, dan dokumen pendukung.
 - `docs/screenshots/`: screenshot per section untuk dokumentasi GitHub.
 
+Asset yang digunakan website ditempatkan di `frontend/src/assets` untuk import bundler dan `frontend/public/assets` untuk file unduhan langsung. Folder `foto/` dipakai sebagai sumber mentah sebelum asset dipilih, dioptimasi, dan dipublikasikan.
+
 ## Analisis Section Keseluruhan
 
 Website memiliki dua mode konten yang dapat diganti lewat tombol toggle di navbar. Beberapa section sama-sama muncul pada kedua mode, tetapi isi dan konteksnya menyesuaikan mode aktif.
