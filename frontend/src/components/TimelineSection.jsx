@@ -9,7 +9,12 @@ export default function TimelineSection({ id, title, eyebrow, items }) {
           <article className="timeline-item" key={`${title}-${item.title}`}>
             {item.image ? (
               <div className="timeline-media">
-                <img src={item.image} alt={item.imageAlt} loading="lazy" />
+                <img
+                  src={item.image}
+                  alt={item.imageAlt}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             ) : null}
             <p className="eyebrow">{item.meta}</p>
