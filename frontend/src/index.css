@@ -829,6 +829,7 @@ p {
   font-size: 0.82rem;
   font-weight: 700;
   line-height: 1;
+  overflow-wrap: anywhere;
   padding: 0.55rem 0.75rem;
 }
 
