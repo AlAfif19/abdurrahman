@@ -6,6 +6,10 @@ Portfolio interaktif untuk Al Afif Abdurrahman yang dibangun dengan React, Vite,
 
 ![Hero Professional](docs/screenshots/professional-hero.png)
 
+## Catatan Visual
+
+Floating 3D chip profesional sudah dihapus agar tampilan utama lebih bersih. Mode Casual tetap mempertahankan artwork paper dan floating badge ringan sebagai aksen visual.
+
 ## Cara Menjalankan
 
 ```bash
