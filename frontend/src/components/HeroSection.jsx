@@ -25,7 +25,12 @@ export default function HeroSection({ profile, copy, mode }) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
       >
-        <img src={portrait.src} alt={portrait.alt} />
+        <img
+          src={portrait.src}
+          alt={portrait.alt}
+          decoding="async"
+          fetchPriority="high"
+        />
       </motion.div>
       <motion.div
         className="hero-copy"
