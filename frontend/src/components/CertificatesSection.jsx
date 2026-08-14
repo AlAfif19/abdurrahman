@@ -15,12 +15,21 @@ export default function CertificatesSection({ certificates }) {
                   loading="lazy"
                 />
               </div>
-            ) : certificate.image ? <div className="certificate-image">
-              <img src={certificate.image} alt={`Sertifikat ${certificate.title}`} loading="lazy" />
-            </div> : <div className="certificate-placeholder" aria-hidden="true">
-              <span>Sertifikat</span>
-              <strong>{certificate.title}</strong>
-            </div>}
+            ) : certificate.image ? (
+              <div className="certificate-image">
+                <img
+                  src={certificate.image}
+                  alt={`Sertifikat ${certificate.title}`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            ) : (
+              <div className="certificate-placeholder" aria-hidden="true">
+                <span>Sertifikat</span>
+                <strong>{certificate.title}</strong>
+              </div>
+            )}
             <p className="eyebrow">{certificate.meta}</p>
             <h3>{certificate.title}</h3>
             {certificate.href ? <a className="certificate-download" href={certificate.href} download>
