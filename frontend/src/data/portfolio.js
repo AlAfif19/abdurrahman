@@ -9,6 +9,8 @@ import projectDiagnoMed from '../assets/project-diagnomed.png'
 import projectPosWarung from '../assets/project-pos-warung.png'
 import projectAliyaWedding from '../assets/project-aliya-wedding.png'
 import projectKuromiCare from '../assets/project-kuromi-care.png'
+import projectSikemah from '../assets/project-sikemah-dashboard.png'
+import projectRisUkri from '../assets/project-ris-ukri-dashboard.png'
 
 export const portfolio = {
   profile: {
@@ -18,7 +20,7 @@ export const portfolio = {
     location: 'Bandung, Indonesia',
     linkedin: 'https://linkedin.com/in/al-afif19',
     github: 'https://github.com/AlAfif19',
-    cvHref: '/assets/CV_Afif_2026.docx',
+    cvHref: '/assets/CV_Afif_2026.pdf',
   },
   contacts: [
     { label: 'Email', href: 'mailto:alafifabdurrahman8@gmail.com' },
@@ -100,6 +102,24 @@ export const portfolio = {
           github: 'https://github.com/AlAfif19/segmentasi__pelanggan.git',
           image: segmentasiDashboard,
           imageAlt: 'Pratinjau dashboard Segmentasi Pelanggan',
+          featured: true,
+        },
+        {
+          title: 'Sikemah UKRI - Sistem Manajemen Kegiatan Mahasiswa',
+          summary:
+            'Mengembangkan sistem manajemen kegiatan mahasiswa berbasis Laravel untuk mendukung proses pengajuan, monitoring, dan dokumentasi kegiatan kemahasiswaan, lengkap dengan perancangan basis data dan alur kerja antar unit organisasi di lingkungan UKRI.',
+          tags: ['Laravel', 'MySQL', 'Full Stack Web Development'],
+          image: projectSikemah,
+          imageAlt: 'Pratinjau dashboard admin SIKEMAH UKRI',
+          featured: true,
+        },
+        {
+          title: 'RIS UKRI - Sistem Riset Penelitian',
+          summary:
+            'Mengembangkan sistem manajemen riset dan penelitian berbasis Laravel untuk mendukung pengelolaan data penelitian dosen dan mahasiswa, termasuk fitur pengelolaan proposal, dokumentasi, dan pelaporan riset kampus.',
+          tags: ['Laravel', 'MySQL', 'Sistem Informasi Riset'],
+          image: projectRisUkri,
+          imageAlt: 'Pratinjau dashboard analitik publikasi karya RIS UKRI',
           featured: true,
         },
         {
@@ -197,6 +217,12 @@ export const portfolio = {
       ],
       organizations: [
         {
+          title: 'Pembicara - Sekolah Legislatif 2026',
+          meta: 'DPM UKRI / 2026',
+          description:
+            'Menjadi pembicara mengenai dasar-dasar legislatif dan peran pengawasan organisasi kemahasiswaan, menyampaikan materi fungsi legislasi, penyusunan regulasi, serta mekanisme pengawasan kebijakan, dan membangun diskusi interaktif bersama peserta.',
+        },
+        {
           title: 'Ketua Komisi I Bidang Legislasi',
           meta: 'DPM UKRI / Jan - Des 2025',
           description:
@@ -207,6 +233,12 @@ export const portfolio = {
           meta: 'Juli 2024',
           description:
             'Memimpin perencanaan, timeline, eksekusi, koordinasi divisi, monitoring, evaluasi, kunjungan sosial, seminar, hingga ceremony Dies Natalis HMIF.',
+        },
+        {
+          title: 'Ketua KKN / Koordinator Desa',
+          meta: 'KKN Universitas Kebangsaan Republik Indonesia / Jul - Agu 2025',
+          description:
+            'Memimpin dan mengoordinasikan kelompok KKN, membagi tugas antaranggota, menjalin komunikasi dengan pihak desa, Karang Taruna, RT/RW, dan warga, serta memantau program kerja agar berjalan sesuai rencana dan bermanfaat bagi masyarakat desa.',
         },
         {
           title: 'Speaker - Voyage of Discovery',
