@@ -1,19 +1,11 @@
-import { Github, Linkedin, Mail, MessageCircle } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import SectionShell from './SectionShell'
-
-const icons = {
-  Email: Mail,
-  LinkedIn: Linkedin,
-  GitHub: Github,
-  WhatsApp: MessageCircle,
-}
 
 export default function ContactSection({ contacts }) {
   return (
     <SectionShell id="contact" eyebrow="(05) Mari terhubung" title="Kontak">
       <div className="contact-list">
         {contacts.map((contact) => {
-          const Icon = icons[contact.label]
           const opensNewTab = contact.href.startsWith('https://')
 
           return (
@@ -24,8 +16,8 @@ export default function ContactSection({ contacts }) {
               target={opensNewTab ? '_blank' : undefined}
               rel={opensNewTab ? 'noopener noreferrer' : undefined}
             >
-              {Icon ? <Icon size={18} aria-hidden="true" /> : null}
               {contact.label}
+              <ArrowUpRight size={32} strokeWidth={1.25} aria-hidden="true" />
             </a>
           )
         })}

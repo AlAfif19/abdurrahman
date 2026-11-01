@@ -1,4 +1,4 @@
-import { Download, Github, Mail } from 'lucide-react'
+import { ArrowUpRight, Download, Github, Mail } from 'lucide-react'
 
 export default function Footer({ profile, mode, onToggleMode }) {
   const nextMode = mode === 'professional' ? 'casual' : 'profesional'
@@ -27,7 +27,7 @@ export default function Footer({ profile, mode, onToggleMode }) {
           onClick={onToggleMode}
           aria-label={`Lihat mode ${nextMode}`}
         >
-          Lihat mode {nextMode}
+          Lihat mode {nextMode} <ArrowUpRight size={17} aria-hidden="true" />
         </button>
       </div>
       <p className="footer-note">Dirancang untuk memperlihatkan kemampuan, pengalaman, dan karakter Al Afif Abdurrahman.</p>

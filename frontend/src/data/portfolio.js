@@ -9,6 +9,8 @@ import projectDiagnoMed from '../assets/project-diagnomed.png'
 import projectPosWarung from '../assets/project-pos-warung.png'
 import projectAliyaWedding from '../assets/project-aliya-wedding.png'
 import projectKuromiCare from '../assets/project-kuromi-care.png'
+import projectSikemah from '../assets/project-sikemah-dashboard.png'
+import projectRisUkri from '../assets/project-ris-ukri-dashboard.png'
 
 export const portfolio = {
   profile: {
@@ -18,7 +20,7 @@ export const portfolio = {
     location: 'Bandung, Indonesia',
     linkedin: 'https://linkedin.com/in/al-afif19',
     github: 'https://github.com/AlAfif19',
-    cvHref: '/assets/CV_Afif_2026.docx',
+    cvHref: '/assets/CV_Afif_2026.pdf',
   },
   contacts: [
     { label: 'Email', href: 'mailto:alafifabdurrahman8@gmail.com' },
@@ -40,7 +42,7 @@ export const portfolio = {
         ['Kontak', '#contact'],
       ],
       summary:
-        'Fresh graduate Teknik Informatika yang membangun solusi Machine Learning, NLP, RAG, LLM, dashboard data, integrasi web, dan software quality.',
+        'Fresh graduate Teknik Informatika dengan fokus Machine Learning, NLP, RAG, LLM, data science, integrasi web, dan software quality.',
       switchLabel: 'Alih ke mode casual',
       switchText: 'Profesional',
       primaryLabel: 'Unduh CV',
@@ -57,7 +59,7 @@ export const portfolio = {
         ['Kontak', '#contact'],
       ],
       summary:
-        'Pengalaman memimpin organisasi, menyusun regulasi, mengelola acara kampus, menjadi pembicara, dan tampil percaya diri di depan audiens.',
+        'Pengalaman memimpin organisasi, menyusun regulasi, mengelola acara, menjadi pembicara, dan tampil di depan audiens.',
       switchLabel: 'Alih ke mode profesional',
       switchText: 'Casual',
       primaryLabel: 'Unduh CV',
@@ -69,7 +71,7 @@ export const portfolio = {
       about:
         'Berdedikasi dalam pengembangan solusi berbasis Machine Learning, Natural Language Processing, Retrieval-Augmented Generation, dan Large Language Model. Menggunakan Python, K-Means, CNN, SVM, serta CRISP-DM untuk menghasilkan insight bisnis, menemukan pola data, dan membangun otomatisasi layanan melalui aplikasi web.',
       highlights: [
-        { value: '3,90', label: 'IPK dari 4,00, predikat Cumlaude' },
+        { value: '3,91', label: 'IPK dari 4,00, predikat Cumlaude' },
         { value: 'AI/ML', label: 'RAG, LLM, NLP, K-Means, CNN, SVM' },
         { value: '2026', label: 'Target kelulusan Teknik Informatika' },
         { value: '2x', label: 'Pengalaman magang dan pelayanan' },
@@ -100,6 +102,24 @@ export const portfolio = {
           github: 'https://github.com/AlAfif19/segmentasi__pelanggan.git',
           image: segmentasiDashboard,
           imageAlt: 'Pratinjau dashboard Segmentasi Pelanggan',
+          featured: true,
+        },
+        {
+          title: 'Sikemah UKRI - Sistem Manajemen Kegiatan Mahasiswa',
+          summary:
+            'Mengembangkan sistem manajemen kegiatan mahasiswa berbasis Laravel untuk mendukung proses pengajuan, monitoring, dan dokumentasi kegiatan kemahasiswaan, lengkap dengan perancangan basis data dan alur kerja antar unit organisasi di lingkungan UKRI.',
+          tags: ['Laravel', 'MySQL', 'Full Stack Web Development'],
+          image: projectSikemah,
+          imageAlt: 'Pratinjau dashboard admin SIKEMAH UKRI',
+          featured: true,
+        },
+        {
+          title: 'RIS UKRI - Sistem Riset Penelitian',
+          summary:
+            'Mengembangkan sistem manajemen riset dan penelitian berbasis Laravel untuk mendukung pengelolaan data penelitian dosen dan mahasiswa, termasuk fitur pengelolaan proposal, dokumentasi, dan pelaporan riset kampus.',
+          tags: ['Laravel', 'MySQL', 'Sistem Informasi Riset'],
+          image: projectRisUkri,
+          imageAlt: 'Pratinjau dashboard analitik publikasi karya RIS UKRI',
           featured: true,
         },
         {
@@ -168,10 +188,10 @@ export const portfolio = {
           title: 'S1 Teknik Informatika',
           meta: 'Universitas Kebangsaan Republik Indonesia / 2022 - 2026',
           description:
-            'IPK 3,90 / 4,00 (Cumlaude). Peraih nilai tertinggi mata kuliah Artificial Intelligence. Fokus implementasi model AI dengan CRISP-DM dan tugas akhir Web Clustering Customer.',
+            'IPK 3,91 / 4,00 (Cumlaude). Peraih nilai tertinggi mata kuliah Artificial Intelligence. Fokus implementasi model AI dengan CRISP-DM dan tugas akhir Web Clustering Customer.',
           image: transcriptImage,
           imageAlt: 'Pratinjau transkrip nilai Al Afif Abdurrahman',
-          actionHref: '/assets/Transkrip_Nilai.png',
+          actionHref: '/assets/Transkrip Nilai.pdf',
           actionLabel: 'Unduh Transkrip Nilai',
         },
       ],
@@ -197,6 +217,12 @@ export const portfolio = {
       ],
       organizations: [
         {
+          title: 'Pembicara - Sekolah Legislatif 2026',
+          meta: 'DPM UKRI / 2026',
+          description:
+            'Menjadi pembicara mengenai dasar-dasar legislatif dan peran pengawasan organisasi kemahasiswaan, menyampaikan materi fungsi legislasi, penyusunan regulasi, serta mekanisme pengawasan kebijakan, dan membangun diskusi interaktif bersama peserta.',
+        },
+        {
           title: 'Ketua Komisi I Bidang Legislasi',
           meta: 'DPM UKRI / Jan - Des 2025',
           description:
@@ -207,6 +233,12 @@ export const portfolio = {
           meta: 'Juli 2024',
           description:
             'Memimpin perencanaan, timeline, eksekusi, koordinasi divisi, monitoring, evaluasi, kunjungan sosial, seminar, hingga ceremony Dies Natalis HMIF.',
+        },
+        {
+          title: 'Ketua KKN / Koordinator Desa',
+          meta: 'KKN Universitas Kebangsaan Republik Indonesia / Jul - Agu 2025',
+          description:
+            'Memimpin dan mengoordinasikan kelompok KKN, membagi tugas antaranggota, menjalin komunikasi dengan pihak desa, Karang Taruna, RT/RW, dan warga, serta memantau program kerja agar berjalan sesuai rencana dan bermanfaat bagi masyarakat desa.',
         },
         {
           title: 'Speaker - Voyage of Discovery',

@@ -58,7 +58,7 @@ Section Profil menjelaskan positioning profesional: fokus pada Machine Learning,
 
 ### 3. Sorotan Profil
 
-Highlight strip merangkum metrik cepat yang mudah dipindai: IPK 3,90, fokus AI/ML, target kelulusan 2026, serta pengalaman magang dan pelayanan.
+Highlight strip merangkum metrik cepat yang mudah dipindai: IPK 3,91, fokus AI/ML, target kelulusan 2026, serta pengalaman magang dan pelayanan.
 
 ![Sorotan Professional](docs/screenshots/professional-highlights.png)
 

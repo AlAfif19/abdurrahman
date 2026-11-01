@@ -1,13 +1,18 @@
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import SectionShell from './SectionShell'
 
 export default function ProjectsSection({ projects }) {
   return (
     <SectionShell id="projects" eyebrow="(02) Project terpilih" title="Project IT">
       <div className="project-bento">
-        {projects.map((project) => {
+        {projects.map((project, index) => {
           const content = (
             <>
+              <div className="project-card-topline">
+                <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
+                <span>{project.github ? 'GitHub' : 'Studi QA'}</span>
+                {project.github ? <ExternalLink size={16} aria-hidden="true" /> : null}
+              </div>
               {project.image ? (
                 <div className="project-thumb">
                   <img
@@ -18,11 +23,6 @@ export default function ProjectsSection({ projects }) {
                   />
                 </div>
               ) : null}
-              <div className="project-card-topline">
-                <Github size={18} aria-hidden="true" />
-                <span>{project.github ? 'GitHub' : 'Studi QA'}</span>
-                {project.github ? <ExternalLink size={16} aria-hidden="true" /> : null}
-              </div>
               <h3>{project.title}</h3>
               <p>{project.summary}</p>
               <div className="badge-list">
@@ -37,7 +37,7 @@ export default function ProjectsSection({ projects }) {
 
           return project.github ? (
             <a
-              className="surface-card project-card project-card-link bento-card"
+              className="project-card project-card-link"
               data-featured={project.featured}
               href={project.github}
               key={project.title}
@@ -48,7 +48,7 @@ export default function ProjectsSection({ projects }) {
               {content}
             </a>
           ) : (
-            <article className="surface-card project-card bento-card" key={project.title}>
+            <article className="project-card" key={project.title}>
               {content}
             </article>
           )

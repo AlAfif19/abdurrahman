@@ -10,7 +10,7 @@ FRONTEND = ROOT / "frontend"
 
 
 def run(command: list[str], cwd: Path) -> int:
-    return subprocess.call(command, cwd=cwd)
+    return subprocess.call(command, cwd=cwd, shell=sys.platform == "win32")
 
 
 def main() -> int:
